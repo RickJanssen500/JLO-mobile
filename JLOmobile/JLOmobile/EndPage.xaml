@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JLOmobile.EndPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+            <Label Text="✔" HorizontalTextAlignment="Center" TextColor="green" FontSize="72"/> 
+            <Label Text="De bestelling is verzameld" HorizontalTextAlignment="Center" TextColor="green" FontSize="36"/> 
+            <Button   FontSize="26" BackgroundColor="#00539b" Clicked="Button_Clicked" TextColor="white" Text="Doorgaan" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

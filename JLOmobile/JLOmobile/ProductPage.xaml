@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JLOmobile.ProductPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        
+        <StackLayout>
+            <Frame BackgroundColor="#00539b" Padding="24" CornerRadius="0">
+
+
+                <Label Text="name" TextColor="white" x:Name="Name" FontSize="36"
+                HorizontalOptions="CenterAndExpand" />
+            </Frame>
+            <Label Text="" FontSize="Title" Padding="30,10,30,10"/>
+            <Label Text="Gewenst aantal:" HorizontalTextAlignment="Center" TextColor="#00539b" FontSize="36"/>
+            <Label x:Name="Amount" FontSize="26" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="" FontSize="Title" Padding="30,10,30,10"/>
+            <Label Text="Aantal:" HorizontalTextAlignment="Center" TextColor="#00539b" FontSize="36"/>
+            <Grid>
+                <Button HorizontalOptions="Start" Clicked="Min_Clicked" FontSize="26" BackgroundColor="#00539b" TextColor="white" Text="-" />
+                <Label HorizontalOptions="Center" x:Name="pickedlabel" FontSize="26" Text="0" />
+                <Button HorizontalOptions="End" Clicked="Plus_Clicked" FontSize="26" BackgroundColor="#00539b" TextColor="white" Text="+" />
+
+            </Grid>
+            <Label Text="" FontSize="Title" Padding="30,10,30,10"/>
+            <Button HorizontalOptions="Center" Clicked="Button_Clicked"  FontSize="26" BackgroundColor="DarkRed" TextColor="white" Text="Opslaan" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

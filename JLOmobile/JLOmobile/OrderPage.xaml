@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JLOmobile.OrderPage"
+             NavigationPage.HasNavigationBar="false">
+    <StackLayout>
+        <Frame BackgroundColor="#00539b" Padding="24" CornerRadius="0">
+          
+            <Label Text="Selecteer een bestelling" HorizontalTextAlignment="Center" TextColor="white" FontSize="28"/>
+        </Frame>
+
+
+        <ListView x:Name="OrderList"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement">
+
+            <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <Grid>
+             <Label  TextColor="#00539b"  FontSize="28" Text="{Binding Id}"/>
+             <Label  TextColor="#00539b" HorizontalTextAlignment="End"  Text="{Binding Pickup}" />
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+            
+
+        </ListView>
+    </StackLayout>
+</ContentPage>
