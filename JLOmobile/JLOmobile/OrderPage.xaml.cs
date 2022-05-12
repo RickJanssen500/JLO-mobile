@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using JLOmobile.DataModels;
 using Newtonsoft.Json;
-
+using Plugin.Connectivity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -42,22 +42,33 @@ namespace JLOmobile
 
         public async void GetOrders()
         {
-            try
+            if (CrossConnectivity.Current.IsConnected)
             {
-                HttpResponseMessage response = await client.GetAsync("https://i454010.luna.fhict.nl/api/Order/GetAll");
-                response.EnsureSuccessStatusCode();
-                var responseBody = await response.Content.ReadAsStringAsync();
-                Items = JsonConvert.DeserializeObject<ObservableCollection<Order>>(responseBody);
-                OrderList.ItemsSource = Items;
-                Console.WriteLine("success");
-            }
-            catch (HttpRequestException e)
-            {
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
-                Items = new ObservableCollection<Order>
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync("https://i454010.luna.fhict.nl/api/Order/GetAll");
+                    response.EnsureSuccessStatusCode();
+                    var responseBody = await response.Content.ReadAsStringAsync();
+                    Items = JsonConvert.DeserializeObject<ObservableCollection<Order>>(responseBody);
+                    OrderList.ItemsSource = Items;
+                    Console.WriteLine("success");
+                }
+                catch (HttpRequestException e)
+                {
+                    Console.WriteLine("\nException Caught!");
+                    Console.WriteLine("Message :{0} ", e.Message);
+                    Items = new ObservableCollection<Order>
                 {
                    new Order(-404, DateTime.Now),
+                };
+                    OrderList.ItemsSource = Items;
+                }
+            }
+            else 
+            {
+                Items = new ObservableCollection<Order>
+                {
+                   new Order(-405, DateTime.Now),
                 };
                 OrderList.ItemsSource = Items;
             }

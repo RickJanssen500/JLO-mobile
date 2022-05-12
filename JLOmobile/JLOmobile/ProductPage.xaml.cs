@@ -36,7 +36,18 @@ namespace JLOmobile
             }
             else
             {
+                if (id == -405)
+                {
+                    Alabel.IsVisible = false;
+                    Glabel.Text = "Er is geen internet verbinding";
+                    Name.Text = "Error";
+                    ButtonGrid.IsVisible = false;
+                    Commit.IsVisible = false;
+                }
+                else
+                { 
                 GetItem(id);
+                }
             }
            
         }
