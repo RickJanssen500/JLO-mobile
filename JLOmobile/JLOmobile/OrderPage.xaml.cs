@@ -51,6 +51,7 @@ namespace JLOmobile
                     var responseBody = await response.Content.ReadAsStringAsync();
                     Items = JsonConvert.DeserializeObject<ObservableCollection<Order>>(responseBody);
                     OrderList.ItemsSource = Items;
+                    NoItems.IsVisible = false;
                     Console.WriteLine("success");
                 }
                 catch (HttpRequestException e)
@@ -62,6 +63,7 @@ namespace JLOmobile
                    new Order(-404, DateTime.Now),
                 };
                     OrderList.ItemsSource = Items;
+                    NoItems.IsVisible = false;
                 }
             }
             else 
@@ -71,6 +73,11 @@ namespace JLOmobile
                    new Order(-405, DateTime.Now),
                 };
                 OrderList.ItemsSource = Items;
+                NoItems.IsVisible = false;
+            }
+            if (Items.Count() == 0) 
+            {
+                NoItems.IsVisible = true;
             }
         }
     }

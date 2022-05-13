@@ -8,7 +8,7 @@
           
             <Label Text="Selecteer een bestelling" HorizontalTextAlignment="Center" TextColor="white" FontSize="28"/>
         </Frame>
-
+        <Label Text="Er zijn geen bestellingen die verzamelt moeten worden" HorizontalTextAlignment="Center" x:Name="NoItems" TextColor="#00539b"/>
 
         <ListView x:Name="OrderList"
             ItemsSource="{Binding Items}"
